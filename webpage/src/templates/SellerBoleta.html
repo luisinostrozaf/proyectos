@@ -1,0 +1,48 @@
+{% extends './sellerTemplate.html' %}
+
+
+<head>
+    {% block Tittle %} <title> Venta </title> {% endblock %}
+</head>
+
+{% block CustomCSS %} 
+<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'css/vendedor.css') }}"/>
+{% endblock %}
+
+{% block body %}
+<div class="mt-1 border border-warning border-2" style="border-radius: 5px; text-align: center; height:50px; width:400px; margin:0px auto;">
+    <h1 class="lead text-center ">Vendedor: <strong><p class="">{{vendedor}} </p></strong> </h1>
+</div>
+
+<form>
+    <section id="container">
+        <table class = "table">
+            <tr class = "nameColumns">
+                <th>ID Boleta</th>
+                <th>Vendedor</th>
+                <th>ID Producto</th>
+                <th>Nombre Producto</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+            {% for dato in filas %}
+            <tr>
+                <th>{{dato[0]}}</th>
+                <th>{{dato[1]}}</th>
+                <th>{{dato[2]}}</th>
+                <th>{{dato[5]}}</th>
+                <th>{{dato[3]}}</th>
+                <th>{{dato[4]}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</form>
+<form action="{{url_for('registrarVenta')}}" method ="POST">
+    <div class="form-group col-md-3 mx-auto">
+        <input type = "submit" class="m-3 btn btn-success text-white w-100" >
+    </div>
+</form>
+{% endblock %}
+
+

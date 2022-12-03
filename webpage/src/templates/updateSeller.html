@@ -1,0 +1,65 @@
+{% extends './adminTemplate.html' %}
+
+<head>
+    {% block Tittle %} <title> Actualizar datos Vendedor </title> {% endblock %}
+</head>
+
+
+{% block CustomCSS %} 
+<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'css/vendedor.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+<div class="bg-light d-flex justify-content-center align-items-center vh-100" >   
+    <div class="bg-white p-5 rounded" >
+        <div class="d-flex justify-content-center " >
+            <img class=" w-25  " src="{{ url_for('static', filename = 'img/seller.PNG') }}" alt="login-ico">
+        </div>
+        <div class="text-center fs-3 fw-bold "> Actualizar Datos Vendedor </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <br/>
+                {% for message in messages %}
+                    <div class="alert alert-success " role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form  id = "login_form" action = "{{url_for('updateSeller')}}" method ="POST">  
+            <div>
+                <select  name = "rut" type="text" class="input-group mt-3 m-3 " >
+                    {% for productos in filas %}
+                        <option value="{{productos[0]}}">{{productos[1]}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+    
+            <div class="input-group m-3">
+                <input class="form-control" name = "correo" type="email" placeholder="Ingrese email">
+            </div>
+
+            <div class="input-group m-3">
+                <input class="form-control" name = "pass" type="password" placeholder="Contraseña">
+            </div>
+    
+            <input type = "submit" class="m-3 btn btn-success text-white w-100" > 
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+<table >
+    <thead>
+        <th>SKU</th>
+        <th>Nombre</th>
+    </thead>
+    {% for datos in filas %}
+    <tbody>
+        <td> {{datos[0]}}</td>
+        <td> {{datos[1]}}</td>
+    </tbody>
+    {% endfor %}
+</table>

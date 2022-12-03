@@ -1,0 +1,53 @@
+{% extends './adminTemplate.html' %}
+
+<head>
+    {% block Tittle %} <title> Registrar Vendedor </title> {% endblock %}
+</head>
+
+{% block body %}  
+
+
+<div class="bg-light d-flex justify-content-center align-items-center vh-100" >
+    <div class="bg-white p-5 rounded" >
+        <div class="d-flex justify-content-center " >
+            <img class=" w-25  " src="{{ url_for('static', filename = 'img/seller.png') }}" alt="login-ico">
+        </div>
+        
+        <div class="text-center fs-3 fw-bold "> Registrar Vendedor</div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <br/>
+                {% for message in messages %}
+                    <div class="alert alert-success " role="alert">
+                        <strong>{{ message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form  id = "seller_form" action = "{{url_for('registrarSeller')}}" method ="POST" class="needs-validation" nonvalidates>  
+            <div class="input-group m-3 ">
+                <input class="form-control" name = "rut" type="text" placeholder="Ingresar rut">
+            </div>
+    
+            <div class="input-group m-3">
+                <input class="form-control" name = "nombre" type="text" placeholder="Ingresar nombre">
+            </div>
+    
+            <div class="input-group m-3">
+                <input class="form-control" name = "email" type="text" placeholder="Ingresar email">
+            </div>
+    
+            <div class="input-group m-3">
+                <input class="form-control" name = "contraseña" type="password" placeholder="Ingresar contraseña">
+            </div>
+    
+            <input type = "submit" class="m-3 btn btn-success text-white w-100" > 
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+

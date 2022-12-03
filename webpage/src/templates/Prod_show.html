@@ -1,0 +1,35 @@
+{% extends './adminTemplate.html' %}
+
+<head>
+    {% block Tittle %} <title> Productos registrados </title> {% endblock %}
+</head>
+
+{% block body %}  
+
+    {% for producto in filas %}
+    <div class="card  mt-4 offset-md-1" style=" width:200px; float:left;" >
+        <div class="card-body " style="height: 380px; background-color:lightcyan;"> 
+            <img class="card-img-top" src={{producto[4]}} alt="Card image" width="100" height="160">
+            <h5 class="card-title h3 mb-1 text-center fw-normal">{{producto[1]}}</h5>
+            <!-- <input class="form-outline w-25" type="text" name="name" required value="{{producto[2]}}"> -->
+            <strong> <p class="mb-1">Stock: </strong>{{producto[2]}}</p>
+            <p class="mb-1">Precio: ${{producto[3]}}</p>
+            
+            <a type="submit" class="btn btn-primary mt-2" width="15" href="{{url_for('updateProduct')}}">
+                Actualizar
+            </a>
+            <form action = "{{url_for('deleteProduct')}}" method ="POST">
+                <button class="btn btn-danger mt-1" name="sku" value="{{producto[0]}}" type="submit" width="15"> 
+                    Eliminar Producto
+                </button>  
+        </div>
+    </div>
+    {% endfor %}
+    
+    
+    
+{% endblock %}
+
+{% block scriptBlock %}
+
+{% endblock %}  
