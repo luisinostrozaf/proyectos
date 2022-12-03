@@ -1,0 +1,33 @@
+INSERT into ADMINISTRADOR (RUT_ADMIN, nombre, email, CONTRASEÑA) values('197813261','admin 1','correo','Pass1234');
+delete from administrador;
+--------------------------SELECT
+SELECT * FROM PRODUCTO;
+SELECT * FROM VENDEDOR;
+SELECT * FROM BOLETA;
+SELECT * FROM REGISTRO_VENTAS;
+SELECT * FROM administrador;
+
+--------------------------BOLETA
+
+CALL BOLETA_CREATE('89787229', 1, 101);
+CALL BOLETA_DELETE_PRODUCT(1);
+CALL BOLETA_REGISTRO();
+
+--------------------------VENDEDORES
+
+CALL VENDEDOR_CREATE('123456789', 'THADLY GUERRA', 'correo@gmail.com',  'asWQE1233');
+CALL VENDEDOR_CREATE('199027952', 'MARIO GONZALEZ', 'tWEWWly64@gmail.com',  'asWQE1D3');
+
+
+CALL VENDEDOR_DELETE('66666676');
+
+CALL VENDEDOR_UPDATE('66666676', 'EMAIL_NUEVO2', 'aa');
+
+
+--------------------------PRODUCTOS
+CALL PRODUCTO_ADD('manzana', 350, 500, 'hola');
+
+
+CALL ACTUALIZAR_STOCK(2, +102);
+CALL ELIMINAR_PRODUCTO(1); 
+
