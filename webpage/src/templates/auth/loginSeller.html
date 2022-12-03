@@ -1,0 +1,46 @@
+{% extends './loginTemplate.html' %}
+
+<head>
+    {% block Tittle %} <title> Login Admin </title> {% endblock %}
+</head>
+
+
+{% block CustomCSS %} 
+<link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename = 'css/formLogin.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+<body class="text-center">
+    <main class="form-signin">
+        <form action = "{{url_for('autentication.loginSeller')}}" method ="POST" class="needs-validation" nonvalidates>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <br/>
+                {% for message in messages %}
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <img class="mb-4" src="{{ url_for('static', filename = 'img/Logo.PNG') }}" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 fw-normal">Por favor inicie sesión como Vendedor</h1>
+        
+            <div class="form-floating">
+                <input name = "rut" class="form-control" id="floatingInput" placeholder="ingrese RUT">
+                <label for="floatingInput">RUT</label>
+            </div>
+
+            <div class="form-floating">
+                <input name = "pswd" type = "password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+
+            <input type = "submit" class=" btn btn-primary text-white w-100" >
+        
+        </form>
+    </main>  
+</body>
+{% endblock %}
