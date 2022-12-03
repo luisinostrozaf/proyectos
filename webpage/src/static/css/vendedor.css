@@ -1,0 +1,46 @@
+section{
+    margin: 25px;
+}
+
+table{
+    border-collapse: collapse;
+    font-size: 12px;
+    font-family: 'arial';
+    width:100px;
+    text-align: center;
+}
+
+.nameColumns{
+    padding: 10px;
+    background: #3d7ba8;
+    color: rgb(255, 251, 251);
+}
+th{
+    text-align: center;
+}
+table td{
+    padding: 10px;
+}
+.link_delete{
+    color: #f26b6b;
+}
+
+.link_edit{
+    color: #0ca4ce;
+}
+
+#searchInput {
+    margin: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#searchInput:focus {
+    border-bottom: 2px solid #4575b6;
+}
+
+.filtro{
+    display: none;
+}
