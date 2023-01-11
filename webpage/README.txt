@@ -15,5 +15,6 @@ abrir SQL PLUS escribir:
 
 En la terminal tiene que ir el ; si no tira error.
 
-en el NAME tiene que ir el 
+NAME = SYSTEM
+PASS = your system pass
 
