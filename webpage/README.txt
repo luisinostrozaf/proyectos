@@ -1,3 +1,5 @@
+PAGINA WEB "TRAVISTOCK" PARA STOCK DE INVENTARIO A UTILIZAR EN NEGOCIOS
+
 dependencias:
 
 1.- pip install flask
